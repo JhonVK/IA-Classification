@@ -1,0 +1,37 @@
+print(base_census)
+
+print(base_census.isnull().sum())
+
+print(base_census.describe())
+
+print(np.unique(base_census['income'], return_counts=True))
+
+sns.countplot(x=base_census['age'])
+
+plt.show()
+
+sns.countplot(x=base_census['income'])
+
+plt.show()
+
+plt.hist(x=base_census['age'])
+
+plt.show()
+
+plt.hist(x=base_census['education-num'])
+plt.show()
+
+plt.hist(x=base_census['hour-per-week'])
+plt.show()
+
+grafico=px.treemap(base_census, path=['workclass', 'age'])
+grafico.show()
+
+grafico=px.treemap(base_census, path=['occupation', 'relationship', 'age'])
+grafico.show()
+
+grafico=px.parallel_categories(base_census, dimensions=['occupation', 'relationship'])
+grafico.show()
+
+grafico=px.parallel_categories(base_census, dimensions=['occupation', 'workclass', 'income'])
+grafico.show()
